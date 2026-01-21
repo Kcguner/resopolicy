@@ -1,64 +1,89 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reso - Veri Silme Talimatları</title>
+    <title>Reso - Data Deletion</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
+            background: #0a0a0a;
+            color: #e5e5e5;
             min-height: 100vh;
             line-height: 1.7;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
         }
+
         .header {
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid #262626;
         }
+
         .logo {
             font-size: 48px;
             margin-bottom: 10px;
         }
+
         h1 {
             font-size: 2.5rem;
-            background: linear-gradient(90deg, #f472b6, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
             margin-bottom: 10px;
+            font-weight: 600;
         }
+
         .date {
-            color: #94a3b8;
+            color: #737373;
             font-size: 0.9rem;
         }
+
         h2 {
-            color: #f472b6;
+            color: #ffffff;
             margin: 30px 0 15px;
             font-size: 1.4rem;
+            font-weight: 600;
         }
-        p, li {
-            color: #cbd5e1;
+
+        h3 {
+            color: #a3a3a3;
+            margin: 20px 0 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        p,
+        li {
+            color: #a3a3a3;
             margin-bottom: 12px;
         }
-        ul, ol {
+
+        ul,
+        ol {
             margin-left: 25px;
             margin-bottom: 20px;
         }
+
         .highlight {
-            background: rgba(244, 114, 182, 0.1);
-            border-left: 3px solid #f472b6;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid #525252;
             padding: 15px 20px;
             border-radius: 0 8px 8px 0;
             margin: 20px 0;
         }
+
         .warning {
             background: rgba(251, 191, 36, 0.1);
             border-left: 3px solid #fbbf24;
@@ -66,16 +91,23 @@
             border-radius: 0 8px 8px 0;
             margin: 20px 0;
         }
+
         .step-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
             padding: 20px;
             margin: 15px 0;
-            border: 1px solid #334155;
+            border: 1px solid #262626;
         }
+
+        .step-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
         .step-number {
             display: inline-block;
-            background: linear-gradient(90deg, #f472b6, #c084fc);
+            background: #262626;
             color: white;
             width: 30px;
             height: 30px;
@@ -85,117 +117,136 @@
             font-weight: bold;
             margin-right: 10px;
         }
+
         a {
-            color: #f472b6;
-            text-decoration: none;
-        }
-        a:hover {
+            color: #ffffff;
             text-decoration: underline;
+            text-underline-offset: 2px;
         }
+
+        a:hover {
+            color: #d4d4d4;
+        }
+
         .footer {
             text-align: center;
             margin-top: 50px;
             padding-top: 30px;
-            border-top: 1px solid #334155;
-            color: #64748b;
+            border-top: 1px solid #262626;
+            color: #525252;
         }
+
         .nav-links {
             margin-top: 20px;
         }
+
         .nav-links a {
             margin: 0 15px;
+            color: #737373;
         }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
         .email-btn {
             display: inline-block;
-            background: linear-gradient(90deg, #f472b6, #c084fc);
-            color: white;
+            background: #ffffff;
+            color: #0a0a0a;
             padding: 12px 30px;
             border-radius: 8px;
             font-weight: 600;
             margin-top: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .email-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(244, 114, 182, 0.4);
             text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .email-btn:hover {
+            background: #e5e5e5;
+            color: #0a0a0a;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <div class="logo">🗑️</div>
-            <h1>Veri Silme Talimatları</h1>
-            <p class="date">Reso Uygulaması</p>
+            <h1>Data Deletion Request</h1>
+            <p class="date">Reso Application</p>
         </div>
 
-        <p>Reso uygulamasında saklanan kişisel verilerinizin silinmesini talep edebilirsiniz. Aşağıda bu süreci nasıl başlatabileceğiniz açıklanmaktadır.</p>
+        <p>You can request the deletion of your personal data stored in the Reso application. Below you will find
+            instructions on how to initiate this process.</p>
 
-        <h2>Silinen Veriler</h2>
-        <p>Veri silme talebiniz işlendiğinde aşağıdaki bilgiler kalıcı olarak silinecektir:</p>
+        <h2>Data That Will Be Deleted</h2>
+        <p>When your data deletion request is processed, the following information will be permanently deleted:</p>
         <ul>
-            <li>Hesap bilgileriniz (e-posta, ad, soyad)</li>
-            <li>Profil bilgileriniz</li>
-            <li>Eklediğiniz mekanlar ve oylamalar</li>
-            <li>Uygulama içi tercihleriniz</li>
-            <li>Sosyal medya bağlantı bilgileri</li>
+            <li>Your account information (email, name)</li>
+            <li>Your profile information</li>
+            <li>Venues you added and your votes</li>
+            <li>Your in-app preferences</li>
+            <li>Social media connection information</li>
         </ul>
 
         <div class="warning">
-            <p>⚠️ <strong>Dikkat:</strong> Veri silme işlemi geri alınamaz. Tüm verileriniz kalıcı olarak silinecektir.</p>
+            <p>⚠️ <strong>Warning:</strong> Data deletion is irreversible. All your data will be permanently deleted.
+            </p>
         </div>
 
-        <h2>Veri Silme Yöntemleri</h2>
+        <h2>How to Delete Your Data</h2>
 
         <div class="step-card">
-            <h3 style="color: #c084fc; margin-bottom: 15px;"><span class="step-number">1</span>E-posta ile Talep</h3>
-            <p>Aşağıdaki bilgileri içeren bir e-posta gönderin:</p>
+            <h3><span class="step-number">1</span>Request via Email</h3>
+            <p>Send an email including the following information:</p>
             <ul>
-                <li>Konu: "Veri Silme Talebi"</li>
-                <li>Kayıtlı e-posta adresiniz</li>
-                <li>Hesabınızla ilişkili ad-soyad</li>
+                <li>Subject: "Data Deletion Request"</li>
+                <li>Your registered email address</li>
+                <li>Name associated with your account</li>
             </ul>
-            <a href="mailto:kcgappshq@gmail.com?subject=Veri%20Silme%20Talebi&body=Merhaba,%0A%0AReso%20uygulamasındaki%20hesabıma%20ait%20tüm%20verilerin%20silinmesini%20talep%20ediyorum.%0A%0AKayıtlı%20e-posta:%20%0AAd%20Soyad:%20%0A%0ATeşekkürler." class="email-btn">📧 E-posta Gönder</a>
+            <a href="mailto:kcgappshq@gmail.com?subject=Data%20Deletion%20Request&body=Hello,%0A%0AI%20would%20like%20to%20request%20the%20deletion%20of%20all%20my%20data%20from%20the%20Reso%20application.%0A%0ARegistered%20email:%20%0AName:%20%0A%0AThank%20you."
+                class="email-btn">📧 Send Email</a>
         </div>
 
         <div class="step-card">
-            <h3 style="color: #c084fc; margin-bottom: 15px;"><span class="step-number">2</span>Uygulama İçinden</h3>
-            <p>Reso uygulaması üzerinden:</p>
+            <h3><span class="step-number">2</span>From Within the App</h3>
+            <p>Through the Reso application:</p>
             <ol>
-                <li>Profil sekmesine gidin</li>
-                <li>Ayarlar ikonuna tıklayın</li>
-                <li>"Hesabı Sil" seçeneğini seçin</li>
-                <li>Onay verin</li>
+                <li>Go to the Profile tab</li>
+                <li>Tap on the Settings icon</li>
+                <li>Select "Delete Account"</li>
+                <li>Confirm your decision</li>
             </ol>
         </div>
 
-        <h2>İşlem Süresi</h2>
+        <h2>Processing Time</h2>
         <div class="highlight">
-            <p>Veri silme talebiniz <strong>30 gün içinde</strong> işleme alınacaktır. İşlem tamamlandığında e-posta ile bilgilendirileceksiniz.</p>
+            <p>Your data deletion request will be processed within <strong>30 days</strong>. You will be notified via
+                email when the process is complete.</p>
         </div>
 
-        <h2>Facebook ile Giriş Yapan Kullanıcılar</h2>
-        <p>Facebook hesabınızla giriş yaptıysanız, Facebook üzerinden de veri erişimini kaldırabilirsiniz:</p>
+        <h2>For Facebook Login Users</h2>
+        <p>If you signed in with your Facebook account, you can also revoke data access through Facebook:</p>
         <ol>
-            <li>Facebook Ayarlar & Gizlilik bölümüne gidin</li>
-            <li>Ayarlar > Uygulamalar ve Web Siteleri'ni seçin</li>
-            <li>Reso uygulamasını bulun ve "Kaldır" seçeneğine tıklayın</li>
+            <li>Go to Facebook Settings & Privacy</li>
+            <li>Select Settings > Apps and Websites</li>
+            <li>Find the Reso application and click "Remove"</li>
         </ol>
 
-        <h2>İletişim</h2>
+        <h2>Contact</h2>
         <div class="highlight">
-            <p>Sorularınız için bizimle iletişime geçebilirsiniz:</p>
-            <p><strong>E-posta:</strong> <a href="mailto:kcgappshq@gmail.com">kcgappshq@gmail.com</a></p>
+            <p>If you have any questions, you can contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:kcgappshq@gmail.com">kcgappshq@gmail.com</a></p>
         </div>
 
         <div class="footer">
-            <p>© 2026 Reso. Tüm hakları saklıdır.</p>
+            <p>© 2026 Reso. All rights reserved.</p>
             <div class="nav-links">
-                <a href="index.html">Gizlilik Politikası</a>
-                <a href="data-deletion.html">Veri Silme</a>
+                <a href="index.html">Privacy Policy</a>
+                <a href="data-deletion.html">Data Deletion</a>
             </div>
         </div>
     </div>
 </body>
+
 </html>
