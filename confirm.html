@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reso - Email Verified</title>
+    <style>
+        body { 
+            background-color: #0F0F0F; 
+            color: white; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            text-align: center;
+        }
+        h1 { color: #10B981; margin-bottom: 20px; }
+        p { color: #9CA3AF; margin-bottom: 40px; }
+        a { 
+            background-color: #6366F1; 
+            color: white; 
+            padding: 15px 30px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 16px;
+        }
+        a:hover { background-color: #4F46E5; }
+    </style>
+</head>
+<body>
+    <h1>Email Verified! ✅</h1>
+    <p>Your email has been successfully verified.</p>
+    <a id="btn" href="#">Open App</a>
+
+    <script>
+        // Get params from URL fragment (hash) or search query
+        const hash = window.location.hash.substring(1); 
+        const search = window.location.search.substring(1); 
+        
+        const params = new URLSearchParams(search);
+        
+        // Supabase sends tokens in hash
+        if (hash) {
+            new URLSearchParams(hash).forEach((value, key) => {
+                params.append(key, value);
+            });
+        }
+
+        // Deep Link for the app
+        const deepLink = "reso://auth/callback?" + params.toString();
+        
+        const btn = document.getElementById('btn');
+        btn.href = deepLink;
+        
+        // Auto redirect after 1 sec
+        setTimeout(() => {
+            window.location.href = deepLink;
+        }, 1000);
+    </script>
+</body>
+</html>
